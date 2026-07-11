@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Solution Copilot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header>
+      <div><p class="eyebrow">AI SOLUTION COPILOT · PORTFOLIO PROJECT</p><h1>企业 AI 方案助手</h1><p class="subtitle">从客户需求到可执行方案 · 全程引用知识库 · 支持销售与售前协同</p></div>
+      <button id="newChat" class="ghost" type="button">新建对话</button>
+    </header>
+    <section class="brief-card" aria-label="方案需求输入">
+      <div class="brief-title"><strong>方案工作台</strong><span>填写客户背景，生成第一版售前方案</span></div>
+      <div class="brief-grid">
+        <label>行业<select id="industry"><option>智能制造</option><option>云计算与数据中心</option><option>机器人与智能硬件</option><option>零售与本地生活</option></select></label>
+        <label>预算范围<input id="budget" placeholder="例如：30 万以内"></label>
+        <label>项目规模<input id="computeScale" placeholder="例如：试点 1 个园区 / 50 人团队"></label>
+        <label class="scenario">业务场景<textarea id="scenario" rows="2" placeholder="例如：客户希望为售后团队搭建 AI 知识库，缩短故障排查与工单创建时间。"></textarea></label>
+      </div>
+      <button id="generate" class="generate" type="button">生成方案建议</button>
+    </section>
+    <section id="chat" class="chat" aria-live="polite">
+      <article class="message assistant"><div class="avatar">AI</div><div class="bubble">你好，我是企业 AI 方案助手。填写上方客户需求后，我会给出可讨论的第一版方案，并标记资料来源与待确认项。</div></article>
+    </section>
+    <form id="composer" class="composer">
+      <label class="sr-only" for="question">输入问题</label>
+      <textarea id="question" rows="1" maxlength="1000" placeholder="也可以直接追问：这个方案如何降低售后响应时间？" required></textarea>
+      <button id="send" type="submit">发送</button>
+    </form>
+    <p class="hint">演示数据来自公开的行业方案知识库，不包含真实客户信息、真实报价或厂商性能承诺。</p>
+  </main>
+  <template id="messageTemplate"><article class="message"><div class="avatar"></div><div class="message-content"><div class="bubble"></div><div class="sources"></div></div></article></template>
+  <script src="/static/app.js"></script>
+</body>
+</html>
